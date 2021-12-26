@@ -6,7 +6,7 @@
   "scripts": {
     "pretest": "npm run build && npm run build:test",
     "test": "ts-node node_modules/jasmine/bin/jasmine --config=./jasmine.json",
-    "style": "import-sort -l \"{src,tests}/**/*.ts\" && prettier --check \"{src,tests}/**/*.ts\"",
+    "style": "import-sort -l \"**/{src,tests,e2e}/**/*.ts\" && prettier --check \"**/{src,tests,e2e}/**/*.{*css,ts}\"",
     "style:fix": "import-sort --write \"{src,tests}/**/*.ts\" && prettier --write \"{src,tests}/**/*.ts\"",
     "lint": "tslint --config tslint.json --project .",
     "lint:fix": "tslint --config tslint.json --fix --project .",
@@ -32,7 +32,7 @@
     "dev-norms": "^1.6.0",
     "env-cmd": "^10.1.0",
     "import-sort": "^6.0.0",
-    "import-sort-cli": "^2.4.0",
+    "import-sort-cli": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
     "import-sort-style-module": "^6.0.0",
     "init-dev-env": "^1.0.0",
