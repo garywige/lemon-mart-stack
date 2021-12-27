@@ -9,15 +9,15 @@ RUN chmod +x /usr/local/bin/dumb-init
 RUN mkdir -p /usr/src/app
 
 RUN chown node /usr/src/app
+COPY package.json /usr/src/app
+RUN chmod 664 /usr/src/app/*
+USER node
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
 RUN NODE_ENV=production
-RUN chmod 666 ./*
 
-USER node
-RUN npm install --only=production --ignore-scripts
+RUN npm install --only=production --force
 
 ENV HOST "0.0.0.0"
 ENV PORT 3000
@@ -25,5 +25,5 @@ EXPOSE 3000
 
 ADD dist dist
 
-ENTRYPOINT [ "dumb-init", "--" ]
+ENTRYPOINT ["dumb-init", "--"]
 CMD ["node", "dist/src/index"]

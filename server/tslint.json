@@ -1,11 +1,12 @@
 {
   "extends": [
     "tslint:recommended",
-    "tslint-etc",
     "tslint-config-prettier",
-    "tslint-plugin-prettier"
+    "tslint-plugin-prettier",
+    "tslint-etc"
   ],
   "rules": {
+    "prettier": true,
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
@@ -17,6 +18,10 @@
     ],
     "interface-name": false,
     "max-classes-per-file": false,
+    "max-line-length": [
+      false,
+      90
+    ],
     "member-access": false,
     "member-ordering": [
       true,
@@ -53,21 +58,16 @@
     ],
     "object-literal-sort-keys": false,
     "ordered-imports": false,
-    "trailing-comma": false,
-    "no-unused-declaration": true,
-    "max-line-length": [
-      false,
-      90
-    ],
     "quotemark": [
       true,
       "single",
       "avoid-escape"
     ],
+    "trailing-comma": false,
     "semicolon": [
       true,
       "never"
     ],
-    "prettier": true
+    "no-unused-declaration": true
   }
 }
