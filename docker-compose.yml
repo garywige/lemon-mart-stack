@@ -16,7 +16,7 @@ services:
     build: server
     env_file: ./server/.env
     environment:
-      - MONGO_URI=mongodb://john.smith:g00fy@lemondb:27017/melon-mart
+      - MONGO_URI=mongodb://john.smith:g00fy@lemondb:27017/lemon-mart
     ports:
       - '3000:3000'
     links:
