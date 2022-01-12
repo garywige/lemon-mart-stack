@@ -33,12 +33,12 @@ export function createJwt(user: IUser): Promise<string> {
         subject: user._id.toHexString(),
         expiresIn: '1d',
       },
-      (err: Error, encoded: string) => {
+      ((err: Error, encoded: string) => {
         if (err) {
           reject(err.message)
         }
         resolve(encoded)
-      }
+      }) as jwt.SignCallback
     )
   })
 }
