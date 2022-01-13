@@ -128,7 +128,11 @@ export class User extends Document<IUser> implements IUser {
     }
 
     if (this.phones) {
-      this.phones = this.hydrateInterfaceArray(Phone, Phone.Build, this.phones)
+      try {
+        this.phones = this.hydrateInterfaceArray(Phone, Phone.Build, this.phones)
+      } catch (err) {
+        console.error(err)
+      }
     }
   }
 
