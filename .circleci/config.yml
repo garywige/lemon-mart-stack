@@ -140,7 +140,7 @@ workflows:
     jobs:
       - build_server
       - build_webapp
-      - test_compose:
-          requires:
-            - build_server
-            - build_webapp
+      #- test_compose:
+          #requires:
+            # - build_server
+            # - build_webapp
