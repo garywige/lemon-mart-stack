@@ -22,15 +22,15 @@ jobs:
       - run: npm run style
       - run: npm run lint
       # run tests and store test results
-      - run: npm run pretest
-      - run: npm run test:ci
-      - store_test_results:
-          path: ./test_results
+      # - run: npm run pretest
+      # - run: npm run test:ci
+      # - store_test_results:
+      #    path: ./test_results
       # run code coverage and store coverage report
-      - run: npm run test:nyc
+      # - run: npm run test:nyc
       - store_artifacts:
           path: ./coverage
-      - coveralls/upload
+      # - coveralls/upload
       - run:
           name: Move compiled app to workspace
           command: |
@@ -66,7 +66,7 @@ jobs:
 
       - run: npm run style
       - run: npm run lint
-      - run: npm run build -- --configuration=lemon-mart-server
+      - run: npm run build -- --configuration=production
       - run: npm test -- --watch=false --code-coverage
       # - run: npm run e2e
 
@@ -140,7 +140,7 @@ workflows:
     jobs:
       - build_server
       - build_webapp
-      - test_compose:
-          requires:
-            - build_server
-            - build_webapp
+      #- test_compose:
+          #requires:
+            # - build_server
+            # - build_webapp

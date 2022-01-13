@@ -7,17 +7,16 @@ ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_a
 RUN chmod +x /usr/local/bin/dumb-init
 
 RUN mkdir -p /usr/src/app
+COPY package*.json /usr/src/app/
 
-RUN chown node /usr/src/app
-COPY package.json /usr/src/app
-RUN chmod 664 /usr/src/app/*
+RUN chown -R node: /usr/src/app
 USER node
 
 WORKDIR /usr/src/app
 
 RUN NODE_ENV=production
 
-RUN npm install --only=production --force
+RUN npm install --only=production --ignore-scripts
 
 ENV HOST "0.0.0.0"
 ENV PORT 3000
