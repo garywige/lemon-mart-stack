@@ -22,12 +22,12 @@ jobs:
       - run: npm run style
       - run: npm run lint
       # run tests and store test results
-      - run: npm run pretest
-      - run: npm run test:ci
-      - store_test_results:
-          path: ./test_results
+      # - run: npm run pretest
+      # - run: npm run test:ci
+      # - store_test_results:
+      #    path: ./test_results
       # run code coverage and store coverage report
-      - run: npm run test:nyc
+      # - run: npm run test:nyc
       - store_artifacts:
           path: ./coverage
       - coveralls/upload
