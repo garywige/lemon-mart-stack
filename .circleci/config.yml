@@ -30,7 +30,7 @@ jobs:
       # - run: npm run test:nyc
       - store_artifacts:
           path: ./coverage
-      - coveralls/upload
+      # - coveralls/upload
       - run:
           name: Move compiled app to workspace
           command: |
